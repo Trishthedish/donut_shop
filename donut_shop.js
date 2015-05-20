@@ -25,9 +25,8 @@ var tbl = document.getElementById('tbl');
 
 //makes this program scalable, you wont have to change it to accomodate changes in the array (in this case: shops)//
 var idx = 0;
-var len = allDonutShops.length;
 var tData;
-while(idx < len) {
+while(idx < allDonutShops.length) {
 	var tRow = document.createElement('tr');
 	var tData = document.createElement('td');
 	tData.innerHTML = allDonutShops[idx].dLocation;
