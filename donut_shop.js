@@ -3,7 +3,7 @@ var DonutShop = function(dLocation,dMin,dMax, avgSold) {
 	this.dMin      = dMin;
 	this.dMax      = dMax;
 	this.avgSold   = avgSold;
-};
+}
 
 DonutShop.prototype.generateRandom = function(dMin, dMax) {
 	return Math.floor(Math.random() * (this.dMax - this.dMin +1)) + this.dMin;
@@ -22,6 +22,34 @@ allDonutShops.push(new DonutShop('wedgeWood', 2, 28, 1.25));
 allDonutShops.push(new DonutShop('ballard', 8, 58, 3.75));
 
 var tbl = document.getElementById('tbl');
+// makes this program scalable, you wont have to change it to accomodate changes in the array (in this case: shops)//
+var idx = 0;
+var len = allDonutShops.length;
+var tData;
+while(idx < len) {
+  var tRow = document.createElement('tr');
+  var tData = document.createElement('td');
+  tData.innerHTML = allDonutShops[idx].dLocation;
+  tRow.appendChild(tData);
+  console.log(allDonutShops[idx].dLocation);
+  var hours = 13;
+  var count = 0;
+  var sumTotal = 0; }
+  while(count < hours + 1){
+    var tData = document.createElement('td');
+    var x = allDonutShops[idx].hourlyDonuts();
+    x = Math.floor(x);
+    tData.innerHTML = x;
+    tRow.appendChild(tData);
+   sumTotal = sumTotal + x;  //in future use +=s
+    count ++;
+  }
+console.log(sumTotal);
+sumTotal= Math.floor(sumTotal);
+tData.innerHTML = sumTotal;
+tRow.appendChild(tData);
+tbl.appendChild(tRow);
+  idx ++;
 
 DonutShop.prototype.makeTbl = function() {
 
@@ -30,7 +58,7 @@ DonutShop.prototype.makeTbl = function() {
   var tData;
   while(idx < allDonutShops.length) {
   var tRow = document.createElement('tr');
-  var tData = document.createElement('td');
+  tData = document.createElement('td');
   tData.textContent = allDonutShops[idx].dLocation;
   tRow.appendChild(tData);
   console.log(allDonutShops[idx].dLocation);
@@ -38,7 +66,7 @@ DonutShop.prototype.makeTbl = function() {
   var count = 0;
   var sumTotal = 0;
   while(count < hours + 1){
-  var tData = document.createElement('td');
+  tData = document.createElement('td');
   var x = allDonutShops[idx].hourlyDonuts();
   x = Math.floor(x);
   tData.innerHTML = x;
@@ -78,6 +106,6 @@ var render = function () {
 };
 
 var getButton = document.getElementById('Potbutton');
-getButton.addeventListener('click', render, false);
+getButton.addEventListener('click', render, false);
 
 
