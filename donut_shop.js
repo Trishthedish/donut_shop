@@ -52,5 +52,107 @@ while(idx < allDonutShops.length) {
 	idx ++;
 }
 
+//began writing new code//
+// Creates a new DonutShop object with the user
+// supplied data from the input tags.
+
+function AddStore(name, open, close)
+  this.name = name;
+  this.open = open;
+  this.close = close;
+}
+
+AddStore.Potlocation_input.prototype.addNewLocation= function(dLocation,dMin,dMax,avgSold, this.open, this.close) {
+  this[dLocation.toLowerCase()] = new Shop(dLocation,dMin, dMax, avgSold, this.open, this.close);
+}
+
+//class name? calls for all add stores to objects and writes to table. Do I need to make "write all shops to write all donut Shops"
+AddStore.class_name.prototype.writeAllShops = function(tbl) {
+  for (i in this) {
+    if (this[i] instanceof Shop) {
+      this[i].writeToTable(tbl);
+    }
+  }
+
+}
+AddStore.prototype.writeAllShops= function() {
+  var main, newSection,locationTable, tRow, tData, newTh, newText,newForm, locationInput, minCustInput, maxCustInput, avgPurchInput, newButton;
+  main = document.querySelector("main");
+
+  newSection = document.createElement("section");
+  newSection.id = this.name + "tbl";
+
+  locationTable = document.createElement("tbl");
+  locationTable.id = this.name;
+
+  newH2 = document.createElement("h2");
+  newText = document.createTextNode(this.name);
+  newH2 = appendChild(newText);
+  newSection.appendChild(newText);
+
+  tRow = document.createElement("th");
+  newText = document.createTextNode("location");
+  newTh.appendChild(newText);
+  tRow.appendChild(newTh);
+
+  for (var = 0; i < this.close - this.open; i ++) {
+
+    newTH = document.createElement("th");
+
+    if (this.open + i < 12 ) {
+      newText = document.createTextNode((this.open + i) + ":00 am");
+    }
+    else if (this.open + i === 12) {
+      newText = document.createTextNode((this.open + i - 12) ":00 pm");
+    }
+
+    newTh.appendChild(newText);
+    tRow.appendChild(newTh);
+  }
+
+  newTh = document.createElement("th");
+  newText = document.createElement("total");
+  newTh.appendChild(newText);
+  tRow.appendChild(newTh);
+
+  locationTable.appendChild(tRow);
+  newSection.appendChild(locationTable);
+
+  newForm = document.createElement("form");
+  locationInput = document.createElement("input");
+  locationInput.id = this.name + "location_input";
+  locationInput.setAttribute("type", "text");
+  locationInput.setAttribute("placeholder","Location");
+  newForm.appendChild(locationInput);
+
+  minCustInput = document.createElement("input")
+  minCustInput.id = this.name + "min_cust_input";
+  minCustInput.setAttribute("type","number");
+  minCustInput.setAttribute("placeholder","Min Custom / Hour")
+
+  maxCustInput = document.createElement("input");
+  maxCustInput.id = this.name + "max_cust_input";
+  maxCustInput.setAttribute("type","number");
+  maxCustInput.setAttribute("placeholder", "Max Custom / Hour");
+
+  avgPurchInput = document.createElement("input");
+  avgPurchInput.id = this.name + "avg_purch_input";
+  avgPurchInput.setAttribute("type", "number");
+  avgPurchInput.setAttribute("placeholder", "Avg Purch / Custom");
+  newForm.appendChild(avgPurchInput);
+
+  newButtom = document.createElment("button");
+  newButtom.id = this.name + "button";
+
+  newText = document.createTextNode(this.name + "Shop");
+  newButton.appendChild(newText);
+  newForm.appendChild(newButton);
+
+  newSection.appendChild(newForm);
+  main.appendChild(newSection);
+
+}
+
+// time to add event listener?
 
 

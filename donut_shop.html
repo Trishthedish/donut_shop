@@ -2,47 +2,45 @@
 <html>
 <head>
   <title></title>
+  <!-- link tag helps intergrate future css page presentation -->
+<link href="donut_shop.css" type="text/css" rel="stylesheet">
 </head>
-<body bgcolor="#FACC2Eg">
-  <h1>DonutShop</h1>
-  <table id= "tbl" style="width:100%">
-    <h1><center><font color="#FF0080"> Top Pot Donuts Works for You!</center></h1>
-    <tr>
-       <select>
-  >
-</select>
-
-
-
-
-       <select name="" id="">
-         <option value="CapHill"></option>
-         <option value=""></option>
-         <option value=""></option>
-         <option value=""></option>
-         <option value=""></option>
-       </select>
-       <th>Location<input type ="" name="Location"></th>
-       <th>7am</th>
-       <th>8am</th>
-       <th>9am</th>
-       <th>10am</th>
-       <th>11am</th>
-       <th>12pm</th>
-       <th>1pm</th>
-       <th>2pm</th>
-       <th>3pm</th>
-       <th>4pm</th>
-       <th>5pm</th>
-       <th>6pm</th>
-       <th>7pm</th>
-       <th>Total</th>
-    </tr>
-  </table>
-
-  <script src="donut_shop.js" type="text/javascript"></script>
-
-</body>
-
-
+<body>
+  <header>
+    <h1>DonutShop</h1>
+  <hr >
+</header>
+<main>
+      <section id = "Upper Table">
+        <table id= "tbl" style="width:100%">
+        <h1><center><font color="#FF0080"> Top Pot Donuts</center></h1>
+        <tr>
+           <th>Location<input type ="" name="Location"></th>
+           <th>7am</th>
+           <th>8am</th>
+           <th>9am</th>
+           <th>10am</th>
+           <th>11am</th>
+           <th>12pm</th>
+           <th>1pm</th>
+           <th>2pm</th>
+           <th>3pm</th>
+           <th>4pm</th>
+           <th>5pm</th>
+           <th>6pm</th>
+           <th>7pm</th>
+           <th>Total</th>
+        </tr>
+        </table>
+  <form>
+  <input id="Top Potlocation_input" type="text" placeholder="Location Name">
+  <input id="Top Potmin_cust_input" type="number" placeholder="Min Custom / Hour">
+  <input id="Top Potmax_cust_input" type="number" placeholder="Max Custom / Hour">
+  <input id="Top Potavg_purch_input" type="number" placeholder="Avg Purch / Custom">
+  <button id="Top Potbutton">Top Pot Shop</button>
+  </form>
+      </section>
+    </main>
+    <script src="donut_shop.js" type="text/javascript"></script>
+  </body>
 </html>
