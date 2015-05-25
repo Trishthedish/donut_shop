@@ -3,7 +3,7 @@ var DonutShop = function(dLocation,dMin,dMax, avgSold) {
 	this.dMin      = dMin;
 	this.dMax      = dMax;
 	this.avgSold   = avgSold;
-}
+};
 
 DonutShop.prototype.generateRandom = function(dMin, dMax) {
 	return Math.floor(Math.random() * (this.dMax - this.dMin +1)) + this.dMin;
@@ -26,10 +26,11 @@ var tbl = document.getElementById('tbl');
 var idx = 0;
 var len = allDonutShops.length;
 var tData;
-while(idx < len) {
+
+ for(var i = 0; i< len; i++) {
   var tRow = document.createElement('tr');
   var tData = document.createElement('td');
-  tData.innerHTML = allDonutShops[idx].dLocation;
+  tData.textContent = allDonutShops[idx].dLocation;
   tRow.appendChild(tData);
   console.log(allDonutShops[idx].dLocation);
   var hours = 13;
@@ -53,6 +54,8 @@ tbl.appendChild(tRow);
 
 DonutShop.prototype.makeTbl = function() {
 
+
+};
 //makes this program scalable, you wont have to change it to accomodate changes in the array (in this case: shops)//
   var idx = 0;
   var tData;
@@ -80,8 +83,6 @@ DonutShop.prototype.makeTbl = function() {
   tRow.appendChild(tData);
   tbl.appendChild(tRow);
   idx ++;
-}
-};
 // new code again automatically calculate hours
 allDonutShops.forEach(function(item, index) {
   item.makeTbl();
